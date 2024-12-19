@@ -182,7 +182,7 @@ The larger `num_samples`, the more likely you will find good quality $`P`$-$`G`$
 
 ## Contributions
 
-We welcome them. Come on, come all.
+We welcome them. Come one, come all.
 
 ## License
 
