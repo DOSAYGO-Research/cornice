@@ -35,18 +35,14 @@ Cornice’s approach is rooted in the properties of prime numbers and the struct
 1. **Primes and Multiplicative Groups:**
    For a prime number $`P`$, the set $`\{1, 2, \dots, P-1\}`$ forms a multiplicative group $`\mathbb{Z}_P^*`$ under modular multiplication:
 
-   $$
-   \mathbb{Z}_P^* = \{ x \mid 1 \leq x \leq P-1 \text{ and } \gcd(x,P)=1 \}.
-   $$
+   $$\mathbb{Z}_P^* = \{ x \mid 1 \leq x \leq P-1 \text{ and } \gcd(x,P)=1 \}.$$
 
    Since $`P`$ is prime, every element $`1 \leq x < P`$ (except $`P`$ itself) is coprime with $`P`$, so $`\mathbb{Z}_P^*`$ is a group of size $`P-1`$.
 
 2. **Generators (Primitive Roots):**
    A generator $`G`$ of $`\mathbb{Z}_P^*`$ is an element that can produce every non-zero residue modulo $`P`$ when raised to successive powers:
 
-   $$
-   G^k \mod P, \quad k = 1, 2, \dots, P-1
-   $$
+   $$G^k \mod P, \quad k = 1, 2, \dots, P-1$$
 
    runs through the entire set $`\{1, 2, \dots, P-1\}`$. Such a $`G`$ ensures a full cycle and thus a highly uniform distribution of values.
 
@@ -56,15 +52,15 @@ Cornice’s approach is rooted in the properties of prime numbers and the struct
 ### Verifying a Generator
 
 To confirm that $`G`$ is a generator, we must ensure it does not generate any smaller subgroup than the full $`\mathbb{Z}_P^*`$. This involves factoring $`P-1`$:
-```math
-P - 1 = q_1^{e_1} q_2^{e_2} \dots q_m^{e_m},
-```
+
+$$P - 1 = q_1^{e_1} q_2^{e_2} \dots q_m^{e_m},$$
+
 where $`q_1, q_2, \dots, q_m`$ are distinct prime factors of $`P-1`$.
 
 A valid generator $`G`$ must satisfy:
-```math
-G^{\frac{P-1}{q_i}} \not\equiv 1 \pmod{P}
-```
+
+$$G^{\frac{P-1}{q_i}} \not\equiv 1 \pmod{P}$$
+
 for every prime factor $`q_i`$ of $`P-1`$. If any such congruence is $`1`$, $`G`$ isn’t a full-cycle generator.
 
 ### Correlation to Avalanche Properties
