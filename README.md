@@ -34,16 +34,20 @@ Cornice’s approach is rooted in the properties of prime numbers and the struct
 
 1. **Primes and Multiplicative Groups:**
    For a prime number $`P`$, the set $`\{1, 2, \dots, P-1\}`$ forms a multiplicative group $`\mathbb{Z}_P^*`$ under modular multiplication:
-   ```math
+
+   $$
    \mathbb{Z}_P^* = \{ x \mid 1 \leq x \leq P-1 \text{ and } \gcd(x,P)=1 \}.
-   ```
+   $$
+
    Since $`P`$ is prime, every element $`1 \leq x < P`$ (except $`P`$ itself) is coprime with $`P`$, so $`\mathbb{Z}_P^*`$ is a group of size $`P-1`$.
 
 2. **Generators (Primitive Roots):**
    A generator $`G`$ of $`\mathbb{Z}_P^*`$ is an element that can produce every non-zero residue modulo $`P`$ when raised to successive powers:
-   ```math
+
+   $$
    G^k \mod P, \quad k = 1, 2, \dots, P-1
-   ```
+   $$
+
    runs through the entire set $`\{1, 2, \dots, P-1\}`$. Such a $`G`$ ensures a full cycle and thus a highly uniform distribution of values.
 
 3. **Existence of Generators:**
