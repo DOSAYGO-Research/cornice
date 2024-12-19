@@ -83,17 +83,17 @@ std::string generate_histogram_string(const std::map<int, int>& histogram, int i
 }
 
 void print_usage() {
-  std::cout << "Usage: avalanche_program [options]\n"
+  std::cout << "Usage: cornice [options]\n"
             << "Options:\n"
             << "  -h                 : show this help message\n"
             << "  [num_samples]      : number of (P,G) pairs to test in normal mode (default: 10)\n"
             << "  -p <prime>         : test a specific prime P\n"
             << "  --p-samples <N>    : when using -p, test N (P,G) pairs for that prime instead of just 1\n\n"
             << "Examples:\n"
-            << "  ./avalanche_program              # runs with default 10 samples\n"
-            << "  ./avalanche_program 100          # runs with 100 samples\n"
-            << "  ./avalanche_program -p 1234567   # runs once for prime 1234567\n"
-            << "  ./avalanche_program -p 1234567 --p-samples 5  # runs 5 (P,G) tests for given prime\n";
+            << "  ./cornice              # runs with default 10 samples\n"
+            << "  ./cornice 100          # runs with 100 samples\n"
+            << "  ./cornice -p 1234567   # runs once for prime 1234567\n"
+            << "  ./cornice -p 1234567 --p-samples 5  # runs 5 (P,G) tests for given prime\n";
 }
 
 int main(int argc, char* argv[]) {

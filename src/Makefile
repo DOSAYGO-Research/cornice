@@ -3,7 +3,7 @@ CXX = g++
 CXXFLAGS = -O2 -std=c++17 -fopenmp
 
 # Target name
-TARGET = avalanche_program
+TARGET = cornice
 
 # Source files
 SRC = main.cpp math_utils.h
