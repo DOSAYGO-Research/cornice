@@ -80,11 +80,14 @@ Cornice primarily targets Ubuntu/Debian systems, but you can adapt the build pro
 sudo apt update
 sudo apt install build-essential libomp-dev
 git clone https://github.com/DOSAYGO-Research/Cornice.git
-cd Cornice
-g++ -o cornice main.cpp -fopenmp -std=c++17
+cd Cornice/src
+make
 ```
 
 ### Building on macOS
+
+*I had trouble getting this to work. It's just easier to build in Linux, but if you figure it out, please open a PR with better instructions!*
+
 ```bash
 brew install llvm libomp
 
@@ -104,7 +107,7 @@ Once built, run:
 ./cornice
 ```
 
-Cornice outputs top-performing prime-generator pairs, giving you an immediate glimpse into the avalanche qualities you’re dealing with. This makes refining and choosing your hash parameters so much smoother!
+Cornice uses parallelization for much of the code, and outputs top-performing prime-generator pairs, giving you an immediate glimpse into the avalanche qualities you’re dealing with. This makes refining and choosing your hash parameters so much smoother!
 
 ## Reading the Results
 
