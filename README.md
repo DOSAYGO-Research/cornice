@@ -1,6 +1,6 @@
 # Cornice
 
-Cornice is a tool designed to evaluate the avalanche properties of prime numbers and generators, all with the ultimate goal of finding prime-generator pairs that yield exceptional cryptographic hashing properties. Primes that exhibit strong avalanche properties with one large generator tend to (but not always) maintain similar performance across a wide range of generators. This consistency makes such primes inherently more reliable for generating avalanche effects, and good candidates to be used as constants in hash algorithms. In contrast, primes that perform poorly with certain generators often display inconsistent behavior, making them less suitable for hashing applications. Therefore, primes with robust and uniform avalanche properties across multiple generators are considered superior for achieving secure and predictable hash functions.
+Cornice is a tool designed to evaluate the avalanche properties of prime numbers and generators, all with the ultimate goal of finding prime-generator pairs that yield exceptional cryptographic hashing properties. Primes that exhibit strong avalanche properties with one large generator tend to (but not always) maintain similar performance across a wide range of generators. This consistency makes such primes inherently more reliable for generating avalanche effects, and good candidates to be used as constants in hash algorithms. In contrast, primes that perform poorly with certain generators often display inconsistent behavior, making them less suitable for hashing applications. Therefore, primes with robust and uniform avalanche properties across multiple generators are considered superior for achieving quality hash functions.
 
 ## The Name
 
@@ -65,7 +65,7 @@ for every prime factor $`q_i`$ of $`P-1`$. If any such congruence is $`1`$, $`G`
 
 ### Correlation to Avalanche Properties
 
-Choosing $`G`$ carefully ensures a broad, pseudo-random distribution of values. This diversity helps simulate the unpredictable output changes expected from a secure hash function. By thoroughly checking and ranking these prime-generator pairs, Cornice guides you toward combinations that naturally produce strong avalanche effects. The result is a greater chance of achieving uniform, high-quality avalanche behavior in your hash functions—something that can help strengthen your overall security posture.
+Choosing $`G`$ carefully ensures a broad, pseudo-random distribution of values. This diversity helps simulate the unpredictable output changes expected from a good hash function, and the large number of non-degenerate samples a generator produce allows much data to evaluate for avalanche. It also seems that generators allow primes to show off their 'best side' when measuring for avalanche ability. So, by thoroughly checking and ranking these prime-generator pairs, Cornice guides you toward combinations that naturally produce strong avalanche effects. The result is a greater chance of achieving uniform, high-quality avalanche behavior in your hash functions—something that can help strengthen your overall security posture.
 
 ## Build Instructions
 
@@ -183,7 +183,7 @@ We welcome them. Come on, come all.
 
 ## License
 
-Cornice is distributed under the Apache License 2.0. Check out the LICENSE file for details. You’re free to experiment, adapt, and improve it for your secure hash building adventures!
+Cornice is distributed under the Apache License 2.0. Check out the LICENSE file for details. You’re free to experiment, adapt, and improve it for your hash building adventures!
 
 ---
 
