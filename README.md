@@ -1,6 +1,6 @@
 # Cornice
 
-Cornice is a tool designed to evaluate the avalanche properties of prime numbers and generators, all with the ultimate goal of finding prime-generator pairs that yield exceptional cryptographic hashing properties. Primes that exhibit strong avalanche properties with one large generator tend to (but not always) maintain similar performance across a wide range of generators. This consistency makes such primes inherently more reliable for generating avalanche effects, and good candidates to be used as constants in hash algorithms. In contrast, primes that perform poorly with certain generators often display inconsistent behavior, making them less suitable for hashing applications. Therefore, primes with robust and uniform avalanche properties across multiple generators are considered superior for achieving quality hash functions.
+Cornice is a tool designed to evaluate the avalanche properties of prime numbers and generators, all with the ultimate goal of finding prime-generator pairs that yield exceptional hashing properties. Primes that exhibit strong avalanche properties with one large generator tend to (but not always) maintain similar performance across a wide range of generators. This consistency makes such primes inherently more reliable for generating avalanche effects, and good candidates to be used as constants in hash algorithms. In contrast, primes that perform poorly with certain generators often display inconsistent behavior, making them less suitable for hashing applications. Therefore, primes with robust and uniform avalanche properties across multiple generators are considered superior for achieving quality hash functions.
 
 ## The Name
 
@@ -190,4 +190,4 @@ Cornice is distributed under the Apache License 2.0. Check out the LICENSE file 
 
 ---
 
-For more information and updates, visit [Cornice on GitHub](https://github.com/DOSAYGO-Research/Cornice). Keep innovating, stay positive, and enjoy exploring the world of cryptography with Cornice at your side!
+For more information and updates, visit [Cornice on GitHub](https://github.com/DOSAYGO-Research/Cornice). Keep innovating, stay positive, and enjoy exploring the world of hasing with Cornice at your side!
