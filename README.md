@@ -1,10 +1,10 @@
 # Cornice
 
-Cornice is a tool designed to evaluate the avalanche properties of prime numbers and generators, all with the ultimate goal of finding prime-generator pairs that yield exceptional cryptographic hashing properties. Primes that exhibit strong avalanche properties with one large generator tend to (but not always) maintain similar performance across a wide range of generators. This consistency makes such primes inherently more reliable for generating avalanche effects, and good candidates to be used as constants in hash algorithms. In contrast, primes that perform poorly with certain generators often display inconsistent behavior, making them less suitable for hashing applications. Therefore, primes with robust and uniform avalanche properties across multiple generators are considered superior for achieving secure and predictable hash functions. 
+Cornice is a tool designed to evaluate the avalanche properties of prime numbers and generators, all with the ultimate goal of finding prime-generator pairs that yield exceptional cryptographic hashing properties. Primes that exhibit strong avalanche properties with one large generator tend to (but not always) maintain similar performance across a wide range of generators. This consistency makes such primes inherently more reliable for generating avalanche effects, and good candidates to be used as constants in hash algorithms. In contrast, primes that perform poorly with certain generators often display inconsistent behavior, making them less suitable for hashing applications. Therefore, primes with robust and uniform avalanche properties across multiple generators are considered superior for achieving secure and predictable hash functions.
 
 ## The Name
 
-The name "Cornice" takes inspiration from the snow formations that accumulate along mountain ridges. These distinctive overhanging shapes can release sudden, powerful avalanches, mirroring the cascading bit-flips that define desirable "avalanche effects" in hash functions. Just as a cornice can unexpectedly shift large amounts of snow, a hash function with good avalanche properties can dramatically change output bits when even a single input bit is altered.
+The name Cornice takes inspiration from the snow formations that accumulate along mountain ridges. These distinctive overhanging shapes can release sudden, powerful avalanches, mirroring the cascading bit-flips that define desirable "avalanche effects" in hash functions. Just as a cornice can unexpectedly shift large amounts of snow, a hash function with good avalanche properties can dramatically change output bits when even a single input bit is altered.
 
 ## Story
 
@@ -12,16 +12,16 @@ Cornice was developed to help identify primes with outstanding avalanche charact
 
 ## Motivation
 
-Avalanche properties lie at the very heart of quality hash functions. A hash function is said to have a "good" avalanche effect if flipping just one input bit leads to a significant, unpredictable number of output bits changing—often about half the bits of the output are expected to flip on average. For a 64-bit prime-based hash, that means roughly 32 output bits should change when a single input bit is altered!
+Avalanche properties lie at the very heart of quality hash functions. A hash function is said to have a good avalanche effect if flipping just one input bit leads to a significant, unpredictable number of output bits changing—often about half the bits of the output are expected to flip on average. For a 64-bit prime-based hash, that means roughly 32 output bits should change when a single input bit is altered!
 
-To ensure these properties, Cornice tests **primitive roots** (often called **generators**) modulo \(P\). Generators ensure that all possible non-zero residues modulo \(P\) are produced, which closely mimics the uniform behavior needed in hashing scenarios. This full coverage of the residue set helps avoid short cycles and non-uniform distributions, resulting in a thoroughly tested prime that can reliably produce high-quality avalanche characteristics.
+To ensure these properties, Cornice tests **primitive roots** (often called **generators**) modulo $P$. Generators ensure that all possible non-zero residues modulo $P$ are produced, which closely mimics the uniform behavior needed in hashing scenarios. This full coverage of the residue set helps avoid short cycles and non-uniform distributions, resulting in a thoroughly tested prime that can reliably produce high-quality avalanche characteristics.
 
 ## How It Works
 
-Cornice systematically evaluates candidate prime numbers (\(P\)) and generators (\(G\)) by testing how input bit flips propagate through a simulated hashing process. Here’s an overview:
+Cornice systematically evaluates candidate prime numbers ($P$) and generators ($G$) by testing how input bit flips propagate through a simulated hashing process. Here’s an overview:
 
 - **Prime Generation:** Finds large-ish (approx. 64-bit) primes.
-- **Generator Selection:** Identifies generators that fully span the multiplicative group modulo \(P\), ensuring a rich and uniform distribution of residues.
+- **Generator Selection:** Identifies generators that fully span the multiplicative group modulo $P$, ensuring a rich and uniform distribution of residues.
 - **Bit-Flip Simulation:** Evaluates how changing a single input bit affects the output, recording the number of output bits that flip.
 - **Statistical Analysis:** Collects extensive data—zero-bit percentages, mean number of changed bits, standard deviation, and a histogram of results—providing a crystal-clear picture of each prime-generator pair’s avalanche quality.
 - **Ranking and Reporting:** Sorts prime-generator pairs based on statistical metrics, shining a spotlight on the best candidates for your hashing needs.
@@ -33,39 +33,39 @@ Cornice systematically evaluates candidate prime numbers (\(P\)) and generators 
 Cornice’s approach is rooted in the properties of prime numbers and the structure of groups formed under modular arithmetic. Let’s briefly cover some foundational ideas:
 
 1. **Primes and Multiplicative Groups:**
-   For a prime number \(P\), the set \(\{1, 2, \dots, P-1\}\) forms a multiplicative group \(\mathbb{Z}_P^*\) under modular multiplication:
-   \[
+   For a prime number $P$, the set $\{1, 2, \dots, P-1\}$ forms a multiplicative group $\mathbb{Z}_P^*$ under modular multiplication:
+   $$
    \mathbb{Z}_P^* = \{ x \mid 1 \leq x \leq P-1 \text{ and } \gcd(x,P)=1 \}.
-   \]
-   Since \(P\) is prime, every element \(1 \leq x < P\) (except \(P\) itself) is coprime with \(P\), so \(\mathbb{Z}_P^*\) is a group of size \(P-1\).
+   $$
+   Since $P$ is prime, every element $1 \leq x < P$ (except $P$ itself) is coprime with $P$, so $\mathbb{Z}_P^*$ is a group of size $P-1$.
 
 2. **Generators (Primitive Roots):**
-   A generator \(G\) of \(\mathbb{Z}_P^*\) is an element that can produce every non-zero residue modulo \(P\) when raised to successive powers:
-   \[
+   A generator $G$ of $\mathbb{Z}_P^*$ is an element that can produce every non-zero residue modulo $P$ when raised to successive powers:
+   $$
    G^k \mod P, \quad k = 1, 2, \dots, P-1
-   \]
-   runs through the entire set \(\{1, 2, \dots, P-1\}\). Such a \(G\) ensures a "full cycle" and thus a highly uniform distribution of values.
+   $$
+   runs through the entire set $\{1, 2, \dots, P-1\}$. Such a $G$ ensures a full cycle and thus a highly uniform distribution of values.
 
 3. **Existence of Generators:**
-   For every prime \(P\), the group \(\mathbb{Z}_P^*\) is cyclic. This guarantees at least one generator exists. Finding such a generator is central to Cornice’s method, as it forms the foundation for thorough avalanche tests.
+   For every prime $P$, the group $\mathbb{Z}_P^*$ is cyclic. This guarantees at least one generator exists. Finding such a generator is central to Cornice’s method, as it forms the foundation for thorough avalanche tests.
 
 ### Verifying a Generator
 
-To confirm that \(G\) is a generator, we must ensure it does not generate any smaller subgroup than the full \(\mathbb{Z}_P^*\). This involves factoring \(P-1\):
-\[
+To confirm that $G$ is a generator, we must ensure it does not generate any smaller subgroup than the full $\mathbb{Z}_P^*$. This involves factoring $P-1$:
+$$
 P - 1 = q_1^{e_1} q_2^{e_2} \dots q_m^{e_m},
-\]
-where \(q_1, q_2, \dots, q_m\) are distinct prime factors of \(P-1\).
+$$
+where $q_1, q_2, \dots, q_m$ are distinct prime factors of $P-1$.
 
-A valid generator \(G\) must satisfy:
-\[
+A valid generator $G$ must satisfy:
+$$
 G^{\frac{P-1}{q_i}} \not\equiv 1 \pmod{P}
-\]
-for every prime factor \(q_i\) of \(P-1\). If any such congruence is 1, \(G\) isn’t a full-cycle generator.
+$$
+for every prime factor $q_i$ of $P-1$. If any such congruence is 1, $G$ isn’t a full-cycle generator.
 
 ### Correlation to Avalanche Properties
 
-Choosing \(G\) carefully ensures a broad, pseudo-random distribution of values. This diversity helps simulate the unpredictable output changes expected from a secure hash function. By thoroughly checking and ranking these prime-generator pairs, Cornice guides you toward combinations that naturally produce strong avalanche effects. The result is a greater chance of achieving uniform, high-quality avalanche behavior in your hash functions—something that can help strengthen your overall security posture.
+Choosing $G$ carefully ensures a broad, pseudo-random distribution of values. This diversity helps simulate the unpredictable output changes expected from a secure hash function. By thoroughly checking and ranking these prime-generator pairs, Cornice guides you toward combinations that naturally produce strong avalanche effects. The result is a greater chance of achieving uniform, high-quality avalanche behavior in your hash functions—something that can help strengthen your overall security posture.
 
 ## Build Instructions
 
@@ -110,8 +110,8 @@ Cornice outputs top-performing prime-generator pairs, giving you an immediate gl
 
 The output provides rich data, including:
 
-- **\(P\):** The prime number tested.
-- **\(G\):** The generator found for this prime.
+- **$P$:** The prime number tested.
+- **$G$:** The generator found for this prime.
 - **Zero Bits %:** The percentage of trials where no bits changed—ideally near 0.
 - **Mean:** The average number of bits changed per single-bit input modification. Near 32 for a 64-bit output is a great sign!
 - **Stddev:** How much variation there is in the bit changes. Lower means more consistent avalanche.
@@ -120,7 +120,6 @@ The output provides rich data, including:
 ### Example Output
 
 Cornice displays results in the form of simple histograms and summary statistics. Each bar in the histogram represents how many trials changed that many bits. Good avalanche distributions will cluster somewhere around half the bit length of the prime. In this case as the primes are 64 bits wide (or close to it), the best distributions will be peaking at 30 - 32 bits, or thereabouts.
-
 
 ```
 P: 1458353492150186011, G: 1261772940743487803, Zero bits %: 0, Mean: 27.9098, Stddev: 4.98006
@@ -176,7 +175,7 @@ Histogram:
 
 In this example, the mean is slightly less than 32 and the standard deviation suggests some variation, but overall the distribution still leans toward a solid avalanche effect. Cornice’s thorough reporting helps you decide if this prime and generator set meets your quality standards.
 
-The larger `num_samples`, the more likely you will find good quality P-G pairs, and better primes.
+The larger `num_samples`, the more likely you will find good quality $P$-$G$ pairs, and better primes.
 
 ## Contributions
 
